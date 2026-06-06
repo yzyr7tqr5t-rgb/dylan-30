@@ -79,6 +79,13 @@ html, body {
   font-size: 2rem;
   animation: pulse-icon 3s ease-in-out infinite;
 }
+.logo-icon-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 8px rgba(200,146,10,.7));
+  animation: pulse-icon 3s ease-in-out infinite;
+}
 @keyframes pulse-icon {
   0%,100% { text-shadow: 0 0 10px var(--accent); }
   50%      { text-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent2); }
@@ -175,9 +182,23 @@ html, body {
   color: var(--text);
 }
 .card-logo-mark {
-  font-size: 1.8rem;
-  color: var(--accent);
-  opacity: .7;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  opacity: .9;
+  filter: drop-shadow(0 0 4px rgba(200,146,10,.5));
+}
+
+.card-watermark {
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 160px;
+  opacity: .07;
+  pointer-events: none;
+  border-radius: 50%;
 }
 
 /* ── Form ──────────────────────────────────────────────────── */

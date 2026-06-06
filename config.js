@@ -27,6 +27,6 @@ const CONFIG = {
   cardHolder:     "Dylan Gybels",
 
   // Bank branding
-  bankName:       "NeoBank",
-  bankTagline:    "Secure · Private · Mysterious",
+  bankName:       "ZwikskesBank",
+  bankTagline:    "Zakład · Wodociągów · Kanalizacji",
 };
