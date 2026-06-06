@@ -173,6 +173,8 @@ function showReveal() {
     setTimeout(() => row.classList.add('visible'), 300 + i * 80);
   });
 
+  // Delay canvas activation so the fade-in transition is already underway
+  setTimeout(() => $('fireworks-canvas').classList.add('active'), 100);
   startFireworks();
 }
 
@@ -238,26 +240,21 @@ function startFireworks() {
     for (let i = 0; i < count; i++) particles.push(new Particle(x, y, color));
   }
 
-  let frameCount = 0;
-  let running = true;
-  const intervals = [];
-
   // Initial salvo
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     setTimeout(() => burst(
       Math.random() * canvas.width * .6 + canvas.width * .2,
-      Math.random() * canvas.height * .5 + 60
+      Math.random() * canvas.height * .45 + 60
     ), i * 200);
   }
 
-  // Ongoing bursts for 12 seconds
-  const burstTimer = setInterval(() => {
+  // Ongoing bursts — run forever
+  setInterval(() => {
     burst(
       Math.random() * canvas.width * .7 + canvas.width * .15,
-      Math.random() * canvas.height * .55 + 40
+      Math.random() * canvas.height * .5 + 40
     );
-  }, 600);
-  setTimeout(() => clearInterval(burstTimer), 12000);
+  }, 700);
 
   function loop() {
     if (!running) return;
