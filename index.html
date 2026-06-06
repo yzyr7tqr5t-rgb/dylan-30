@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoBank — Secure Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── MATRIX RAIN BACKGROUND ── -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LOGIN SCREEN
+  ══════════════════════════════════════════════════════════ -->
+  <div id="login-screen" class="screen active">
+
+    <div class="bank-header">
+      <div class="bank-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-name" id="bank-name-header"></span>
+      </div>
+      <div class="bank-tagline" id="bank-tagline-header"></div>
+    </div>
+
+    <div class="card-container">
+
+      <!-- Visual card preview -->
+      <div class="credit-card" id="credit-card">
+        <div class="card-shine"></div>
+        <div class="card-chip">
+          <div class="chip-lines"></div>
+        </div>
+        <div class="card-number-display" id="card-display">•••• •••• •••• ••••</div>
+        <div class="card-bottom">
+          <div class="card-holder">
+            <div class="card-label">Card Holder</div>
+            <div class="card-value">UNKNOWN</div>
+          </div>
+          <div class="card-expiry-display">
+            <div class="card-label">Expires</div>
+            <div class="card-value" id="expiry-display">MM/YY</div>
+          </div>
+          <div class="card-logo-mark">◈</div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="bank-form" autocomplete="off">
+
+        <div class="field-group">
+          <label for="card-number">Card Number</label>
+          <div class="input-wrapper">
+            <span class="input-icon">▦</span>
+            <input
+              type="text"
+              id="card-number"
+              placeholder="•••• •••• •••• ••••"
+              maxlength="19"
+              inputmode="numeric"
+            />
+            <span class="field-status" id="status-card"></span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="expiry">Expiry Date</label>
+            <div class="input-wrapper">
+              <span class="input-icon">◷</span>
+              <input
+                type="text"
+                id="expiry"
+                placeholder="MM/YY"
+                maxlength="5"
+                inputmode="numeric"
+              />
+              <span class="field-status" id="status-expiry"></span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="cvc">CVC</label>
+            <div class="input-wrapper">
+              <span class="input-icon">⊛</span>
+              <input
+                type="password"
+                id="cvc"
+                placeholder="•••"
+                maxlength="3"
+                inputmode="numeric"
+              />
+              <span class="field-status" id="status-cvc"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="pin">PIN Code</label>
+          <div class="pin-wrapper">
+            <div class="pin-dots" id="pin-dots">
+              <div class="pin-dot" data-index="0"></div>
+              <div class="pin-dot" data-index="1"></div>
+              <div class="pin-dot" data-index="2"></div>
+              <div class="pin-dot" data-index="3"></div>
+            </div>
+            <input
+              type="password"
+              id="pin"
+              maxlength="4"
+              inputmode="numeric"
+              class="pin-hidden-input"
+            />
+          </div>
+        </div>
+
+        <div id="error-msg" class="error-msg hidden">
+          <span class="error-icon">⚠</span>
+          <span id="error-text">Invalid credentials. Access denied.</span>
+        </div>
+
+        <button type="submit" id="submit-btn" class="submit-btn">
+          <span class="btn-text">Authenticate</span>
+          <span class="btn-arrow">→</span>
+          <div class="btn-glow"></div>
+        </button>
+
+        <div class="security-note">
+          <span>🔒 256-bit encrypted · Monitored 24/7</span>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       REVEAL SCREEN
+  ══════════════════════════════════════════════════════════ -->
+  <div id="reveal-screen" class="screen">
+
+    <canvas id="fireworks-canvas"></canvas>
+
+    <div class="reveal-content">
+
+      <div class="reveal-bank-logo">
+        <span class="logo-icon">◈</span>
+        <span id="bank-name-reveal"></span>
+      </div>
+
+      <div class="confetti-banner">🎉</div>
+
+      <h1 class="reveal-title">
+        Happy Birthday,<br/>
+        <span class="reveal-name" id="reveal-name"></span>!
+      </h1>
+
+      <p class="reveal-subtitle">Your friends chipped in a little something…</p>
+
+      <div class="amount-card">
+        <div class="amount-label">Total Gift Amount</div>
+        <div class="amount-value" id="reveal-amount"></div>
+        <div class="amount-glow"></div>
+      </div>
+
+      <div class="friends-section">
+        <h2 class="friends-title">From your squad</h2>
+        <div class="friends-list" id="friends-list"></div>
+      </div>
+
+      <div class="reveal-footer">With love ❤️ — your crew</div>
+
+    </div>
+  </div>
+
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
