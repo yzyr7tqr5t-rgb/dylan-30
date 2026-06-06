@@ -44,7 +44,7 @@ const cardInput = $('card-number');
 cardInput.addEventListener('input', e => {
   let v = e.target.value.replace(/\D/g, '').slice(0, 16);
   e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
-  $('card-display').textContent = e.target.value.padEnd(19, '•').replace(/[^•\d ]/g, '•') || '•••• •••• •••• ••••';
+  $('card-display').textContent = e.target.value || '•••• •••• •••• ••••';
   validate('card-number');
 });
 
@@ -115,8 +115,10 @@ function maxLen(id) {
 }
 
 function setStatus(id, icon) {
-  $('status-' + id).textContent = icon;
-  if (icon === '✓') $('status-' + id).style.color = '#00ff9d';
+  const el = $('status-' + id);
+  if (!el) return;
+  el.textContent = icon;
+  if (icon === '✓') el.style.color = '#00ff9d';
 }
 
 // ── Submit ──────────────────────────────────────────────────────────────────
