@@ -23,6 +23,9 @@ const CONFIG = {
     { name: "Julia",    amount: "€ 50,00" },
   ],
 
+  // Card holder
+  cardHolder:     "Dylan Gybels",
+
   // Bank branding
   bankName:       "NeoBank",
   bankTagline:    "Secure · Private · Mysterious",

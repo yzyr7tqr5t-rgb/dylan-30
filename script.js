@@ -36,8 +36,9 @@ const $ = id => document.getElementById(id);
 })();
 
 // ── Apply config ────────────────────────────────────────────────────────────
-$('bank-name-header').textContent  = CONFIG.bankName;
+$('bank-name-header').textContent    = CONFIG.bankName;
 $('bank-tagline-header').textContent = CONFIG.bankTagline;
+document.querySelector('.card-holder .card-value').textContent = CONFIG.cardHolder.toUpperCase();
 
 // ── Format card number input ────────────────────────────────────────────────
 const cardInput = $('card-number');
